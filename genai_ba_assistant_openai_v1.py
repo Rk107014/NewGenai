@@ -1,16 +1,17 @@
 import streamlit as st
+import toml
 import os
-from dotenv import main
 from openai import AzureOpenAI
 
-
+with open("secrets.toml", "r") as f:
+    secrets = toml.load(f)
 # Load environment variables
-main.load_dotenv()
-endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-api_key = os.getenv("AZURE_OPENAI_API_KEY")
-deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT")
-api_version = os.getenv("AZURE_OPENAI_API_VERSION")
 
+endpoint = secrets["api"]["AZURE_OPENAI_ENDPOINT"]
+api_key = secrets["api"]["AZURE_OPENAI_API_KEY"]
+deployment = secrets["api"]["AZURE_OPENAI_DEPLOYMENT"]
+api_version =secrets["api"]["AZURE_OPENAI_API_VERSION"]
+print(f"endpoint: {endpoint}")
 # Create AzureOpenAI client
 client = AzureOpenAI(
     azure_endpoint=endpoint,
