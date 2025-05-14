@@ -51,7 +51,7 @@ if st.button("Generate"):
         st.warning("Please enter some input to proceed.")
     else:
         if task == "Generate User Stories":
-            prompt = f"""You are a Business Analyst assistant. Convert the following notes into user stories with acceptance criteria.
+            prompt = f"""You are a Business Analyst assistant. Convert the following notes into user stories with acceptance criteria. Consider this user stories for specific to Fitness Domain.
 
 Format:
 - As a [user], I want to [goal], so that [benefit].
@@ -63,7 +63,7 @@ Notes:
 {input_text}
 """
         elif task == "Generate UAT Test Cases":
-            prompt = f"""Create UAT test cases based on the user story and acceptance criteria below:
+            prompt = f"""Create UAT test cases Consider this for specific to Fitness Domain, based on the user story and acceptance criteria below:
 
 {input_text}
 
