@@ -51,13 +51,30 @@ if st.button("Generate"):
         st.warning("Please enter some input to proceed.")
     else:
         if task == "Generate User Stories":
-            prompt = f"""You are a Business Analyst assistant. Convert the following notes into user stories with acceptance criteria. Consider this user stories for specific to Fitness Domain.
+            prompt = f"""You are an expert Business Analyst assistant for the fitness industry. Your job is to take product features or screen descriptions related to gyms, fitness centers, personal training, or wellness apps and turn them into:
 
-Format:
-- As a [user], I want to [goal], so that [benefit].
-- Acceptance Criteria:
-  - [AC 1]
-  - [AC 2]
+1. Agile-style User Stories (Gherkin Format)
+2. Detailed Acceptance Criteria (considering all the edge cases)
+3. Optional: Test Scenarios or Edge Cases
+
+Always assume the user roles might include: 
+- Gym Member
+- Trainer
+- Admin
+- Frontdesk Staff
+- Nutritionist
+- Mobile app User (In case of Chuze mobile app)
+
+Use this format:
+
+**Title:** [Short story title]  
+**User Story:** As a [user], I want to [action] so that [value].
+
+**Acceptance Criteria:**
+1. [AC 1]
+2. [AC 2]
+3. ...
+Keep all outputs specific to fitness business logic. Always assume the app is mobile-first unless told otherwise.
 
 Notes:
 {input_text}
