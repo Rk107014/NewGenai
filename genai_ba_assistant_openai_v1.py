@@ -51,11 +51,11 @@ if st.button("Generate"):
         st.warning("Please enter some input to proceed.")
     else:
         if task == "Generate User Stories":
-            prompt = f"""You are an expert Business Analyst assistant for the fitness industry. Your job is to take product features or screen descriptions related to gyms, fitness centers, personal training, or wellness apps and turn them into:
+            prompt = f"""You are an expert and senior Business Analyst assistant for the fitness industry. Your task is to take the following functional requirement and generate extremely high-quality Agile user stories and acceptance criteria with deep clarity, testability, and backend integration awareness or screen descriptions related to gyms, fitness centers, personal training, or wellness apps and turn them into:
 
 1. Agile-style User Stories (Gherkin Format)
 2. Detailed Acceptance Criteria (considering all the edge cases)
-3. Optional: Test Scenarios or Edge Cases
+
 
 Always assume the user roles might include: 
 - Gym Member
@@ -65,16 +65,30 @@ Always assume the user roles might include:
 - Nutritionist
 - Mobile app User (In case of Chuze mobile app)
 
-Use this format:
+Output Guidelines:
+- Use markdown formatting with headers
+- Include 1 main user story and supporting user stories if applicable
+- Clearly list acceptance criteria (at least 4), focusing on edge cases, validations, system sync (e.g., ABC), and user actions
+- If applicable, include backend integration steps and data handling like profile updates, logs, or notes
+- Include test case suggestions with boundary and negative scenarios
+- Ensure the tone is suitable for JIRA-ready tickets
 
-**Title:** [Short story title]  
-**User Story:** As a [user], I want to [action] so that [value].
+Output format:
+
+## Main User Story
+**Title:**  
+**As a** [user type], **I want** [functionality] **so that** [value/goal]
 
 **Acceptance Criteria:**
 1. [AC 1]
 2. [AC 2]
 3. ...
-Keep all outputs specific to fitness business logic. Always assume the app is mobile-first unless told otherwise.
+Keep all outputs specific to fitness business logic. Always assume the app is mobile-first unless told otherwise. Also generate the Figma Mockup image based on the generated Userstory.
+
+## 🔁 Backend/Sync Notes
+- [Any updates to systems like ABC, notes creation, verification, etc.]
+
+Respond only with the formatted output.
 
 Notes:
 {input_text}
