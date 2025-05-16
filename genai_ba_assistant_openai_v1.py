@@ -51,10 +51,17 @@ if st.button("Generate"):
         st.warning("Please enter some input to proceed.")
     else:
         if task == "Generate User Stories":
-            prompt = f"""You are an expert and senior Business Analyst assistant for the fitness industry. Your task is to take the following functional requirement and generate extremely high-quality Agile user stories and acceptance criteria with deep clarity, testability, and backend integration awareness or screen descriptions related to gyms, fitness centers, personal training, or wellness apps and turn them into:
+            prompt = f"""You are a senior Business Analyst specialized in mobile fitness applications like Chuze.
 
-1. Agile-style User Stories (Gherkin Format)
-2. Detailed Acceptance Criteria (considering all the edge cases)
+Your task is to convert the following functional requirement into detailed, high-quality Agile user stories with:
+
+1. A clear, concise title.
+2. User stories written from specific user roles (e.g., Member, Trainer, Admin).
+3. Well-defined acceptance criteria covering normal, edge, and negative scenarios.
+4. Explicit test case suggestions including boundary conditions.
+5. Backend integration notes, such as API calls, data syncing with external systems like ABC, and audit logging.
+6. Use markdown formatting with headers and bullet points for clarity.
+7. Make the output ready to be used directly in JIRA or similar Agile tools.
 
 
 Always assume the user roles might include: 
@@ -83,11 +90,16 @@ Output format:
 1. [AC 1]
 2. [AC 2]
 3. ...
-Keep all outputs specific to fitness business logic. Always assume the app is mobile-first unless told otherwise. Also generate the Figma Mockup image based on the generated Userstory.
+
+## 🎨 Figma Mockup Description
+- Screen Title: 
+- Sections: 
+- Fields/Buttons:
+- User Flow Notes:
 
 ## 🔁 Backend/Sync Notes
-- [Any updates to systems like ABC, notes creation, verification, etc.]
-
+- [Any backend processes, API calls, data sync details etc.]
+Keep all outputs specific to fitness business logic. Always assume the app is mobile-first unless told otherwise. Also generate the Figma Mockup image based on the generated Userstory.
 Respond only with the formatted output.
 
 Notes:
